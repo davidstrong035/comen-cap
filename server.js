@@ -10,17 +10,15 @@ let database = require("./database");
 // Endpoint for the login function
 app.use(cors());
 
+const { body, validationResult } = require("express-validator/check");
+const { sanitizeBody } = require("express-validator/filter");
 
-
-const { body, validationResult } = require('express-validator/check');
-const { sanitizeBody } = require('express-validator/filter');
-
-app.use(bodyParser.urlencoded({extended: false})); //Parses urlencoded bodies
+app.use(bodyParser.urlencoded({ extended: false })); //Parses urlencoded bodies
 app.use(bodyParser.json()); //Send JSON responses
 
-app.use(logger('dev')); // Log requests to API using morgan
+app.use(logger("dev")); // Log requests to API using morgan
 
-app.use('/images', express.static(path.join(__dirname, 'uploads')))
+app.use("/images", express.static(path.join(__dirname, "uploads")));
 
 // Import all routes
 let login = require("./routes/login");
@@ -37,7 +35,6 @@ let adminacctinfo = require("./routes/adminacctinfo");
 let kins = require("./routes/kins");
 //let uploadFile = require("./uploadFile");
 
-
 app.use("/", login);
 app.use("/", profile);
 app.use("/", apply);
@@ -52,8 +49,7 @@ app.use("/", kins);
 app.use("/", changesecurityinfo);
 //app.use("/", uploadFile);
 
-
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 4000);
 console.log("COMENITY CAPITAL Server Started, listening on port 5000");
 
 module.exports = app;

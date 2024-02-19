@@ -5,8 +5,8 @@ let router = express.Router();
 let userModel = require("../schemas/userSchema");
 
 router.post("/login", function (req, res) {
-  uname = trimString(req.body.one.trimg());
-  pwd = trimString(req.body.two.trimg());
+  uname = trimString(req.body.one.trim());
+  pwd = trimString(req.body.two.trim());
 
   userModel.find({ "bio.login.username": uname }, function (err, user) {
     if (err) {

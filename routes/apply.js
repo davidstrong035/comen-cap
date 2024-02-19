@@ -16,13 +16,13 @@ router.post("/apply", function (req, res) {
     bio: {
       name: req.body.name,
       login: {
-        username: req.body.user.trimg(),
-        password: req.body.pwd.trimg(),
+        username: req.body.user.trim(),
+        password: req.body.pwd.trim(),
       },
       address: {
-        street: req.body.address.trimg(),
-        city: req.body.city.trimg(),
-        state: req.body.state.trimg(),
+        street: req.body.address.trim(),
+        city: req.body.city.trim(),
+        state: req.body.state.trim(),
         country: req.body.country,
       },
       dob: req.body.dob,
@@ -33,7 +33,7 @@ router.post("/apply", function (req, res) {
     security: {
       qanda: {
         question: req.body.question,
-        answer: req.body.answer.trimg(),
+        answer: req.body.answer.trim(),
       },
       pin: req.body.pin,
     },
